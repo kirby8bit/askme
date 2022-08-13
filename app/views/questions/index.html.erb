@@ -1,0 +1,14 @@
+<div class='container'>
+  <h1 class='title-lg mb'>Вопросы</h1>
+
+  <% @questions.each do |question| %>
+    <% if question.hidden? %>
+      <p class='mb-sm hide'> <%= link_to "Вопрос: #{question[:id]}", "/questions/#{question[:id]}" %> </p>
+    <% else %>
+      <p class='mb-sm'> <%= link_to "Вопрос: #{question[:id]}", "/questions/#{question[:id]}" %> </p>
+    <% end%>
+  <% end%>
+  <p class='mt'>
+    <%= link_to 'Создать новый вопрос', new_question_path, class: 'button button-main' %>
+  </p>
+</div>

@@ -1,0 +1,13 @@
+.button {
+  color: white;
+  display: inline-block;
+  border: 0;
+  padding: 8px 13px 7px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.button-main {
+  background-color: #9D0208;
+}
