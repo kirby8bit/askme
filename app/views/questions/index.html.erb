@@ -3,9 +3,9 @@
 
   <% @questions.each do |question| %>
     <% if question.hidden? %>
-      <p class='mb-sm hide'> <%= link_to "Вопрос: #{question[:id]}", "/questions/#{question[:id]}" %> </p>
+      <p class='mb-sm hide'> <%= link_to "Вопрос: #{question.id}", question_path(question) %> </p>
     <% else %>
-      <p class='mb-sm'> <%= link_to "Вопрос: #{question[:id]}", "/questions/#{question[:id]}" %> </p>
+      <p class='mb-sm'> <%= link_to "Вопрос: #{question.id}", question_path(question) %> </p>
     <% end%>
   <% end%>
   <p class='mt'>
