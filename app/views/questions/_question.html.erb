@@ -1,0 +1,23 @@
+<div>
+  <% if question.hidden? %>
+    <p class='mb-sm hide'><%= question.body %></p>
+  <% else %>
+    <p class='mb-sm'><%= question.body %></p>
+  <% end %>
+</div>
+
+<div class='text-sm question-footer'>
+  <div class='text-grey'>
+    <%= l(question.created_at, format: :short) %>
+  </div>
+
+  <div class='mt'>
+    <%= link_to fa_icon('pencil'), edit_question_path(question), title: 'Изменить вопрос' %>
+    <% unless question.hidden? %>
+      <%= button_to fa_icon('eye-slash'), hide_question_path(question), method: :put, title: 'Скрыть вопрос'%>
+    <% end %>
+    <%= button_to fa_icon('trash-o'), question_path(question), method: :delete, title: 'Удалить вопрос', form: {data: {turbo_confirm: 'Точно удалить вопрос?'}} %>
+  </div>
+</div>
+
+
