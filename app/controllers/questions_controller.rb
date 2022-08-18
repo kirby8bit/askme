@@ -2,8 +2,17 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: %i[show update destroy edit hide hidden?]
 
   def create
-    question = Question.create(question_params)
-    redirect_to question_path(question), notice: 'Ваш вопрос создан !'
+    # question = Question.create(question_params)
+    # debugger
+    # redirect_to question_path(question), notice: 'Ваш вопрос создан !'
+
+    @question = Question.new(question_params)
+    if @question.save
+      redirect_to question_path(@question), notice: 'Ваш вопрос создан !'
+    else
+      flash.now[:alert] = 'Не удалось создать вопрос !'
+      render :new
+    end
   end
 
   def update
