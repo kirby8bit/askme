@@ -1,6 +1,5 @@
 <div class='container'>
   <h1 class='title-lg mb'>Вопрос <%= @question.id %></h1>
-  <p class='mb-sm'><%= @question.body %></p>
   <p>user_id: <b><%= link_to @question.user_id %></b></p>
   <%= render @question %>
   <p class='mt'><%= link_to 'Все вопросы', questions_path %></p>
