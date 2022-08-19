@@ -1,0 +1,10 @@
+<div class='container'>
+  <h2 class='title-lg'>Изменить цвет шапки</h2>
+  <div class='mt'>
+    <%= form_with scope: :session, url: colors_path, data: {turbo: false} do |form|  %>
+      <p class='mt'><%= form.label :colorpicker, 'Выбрать цвет шапки:' %></p>
+      <p class='mt'><%= form.color_field :color %></p>
+      <p class='mt'><%= form.submit 'Применить', class: 'button button-main' %></p>
+    <% end %>
+  </div>
+</div>

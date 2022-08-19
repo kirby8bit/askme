@@ -22,6 +22,7 @@
       <p class='mt'><%= form.password_field :password_confirmation, class: 'form-text-area' %></p>
       <p class='mt'>
         <%= form.submit 'Сохранить', class: 'button button-main' %>
+        <span class='text-sm'><%= link_to 'Изменить цвет шапки' ,new_colors_path %></span>
         <span class='text-sm'>или <%= link_to 'Вернуться', :back %></span>
       </p>
     <% end %>
