@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
 
     if user.present?
       session[:user_id] = user.id
+
       redirect_to root_path, notice: 'Вы вошли на сайт !'
     else
       flash.now[:alert] = 'Неправильный email или пароль !'
