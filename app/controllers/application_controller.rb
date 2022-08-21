@@ -7,15 +7,15 @@ class ApplicationController < ActionController::Base
   end
 
   def current_color
-    if session[:color].present?
-      if current_user.nil?
-        '#370617'
-      else
+    if current_user.nil?
+      '#370617'
+    else
+      if session[:color].present?
         current_user.update(color: session[:color])
         current_user.color
+      else
+        current_user.color
       end
-    else
-      '#370617'
     end
   end
 end
