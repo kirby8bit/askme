@@ -16,7 +16,6 @@
         <p class='title-sm text-bold'><%= link_to 'Ask me!', root_path%></p>
         <div>
           <% if current_user.present? %>
-            <span class='mr'>Цвет шапки  <%= link_to fa_icon('certificate'), new_colors_path %></span>
             <span class='mr'>Изменить  <%= link_to fa_icon('pencil'), edit_user_path(current_user) %></span>
             <%= content_tag 'span', display_nickname(current_user), class: 'mr-sm'%>
             <%= button_to 'Выйти', session_path, method: :delete %>
