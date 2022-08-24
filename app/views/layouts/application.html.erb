@@ -12,12 +12,12 @@
 
   <body>
     <div class="wrapper">
-      <div class='navbar' style='background-color: <%= current_user&.color %>;'>
+      <div class='navbar' style='background-color: <%= current_user&.color || '#370617' %>;'>
         <p class='title-sm text-bold'><%= link_to 'Ask me!', root_path%></p>
         <div>
           <% if current_user.present? %>
             <span class='mr'>Изменить  <%= link_to fa_icon('pencil'), edit_user_path(current_user) %></span>
-            <%= content_tag 'span', display_nickname(current_user), class: 'mr-sm'%>
+            <%= link_to display_nickname(current_user), user_path(current_user), class: 'mr-sm' %>
             <%= button_to 'Выйти', session_path, method: :delete %>
           <% else %>
             <%= link_to 'Регистрация!', new_user_path, class: 'button button-yellow mr-sm'%>

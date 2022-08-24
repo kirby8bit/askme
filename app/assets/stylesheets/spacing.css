@@ -11,15 +11,15 @@
 }
 
 .mb-sm {
-  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
 }
 
 .mb, mt-md {
-  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .mb-lg {
-  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
 }
 
 .mr-sm {

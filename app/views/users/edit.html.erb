@@ -20,8 +20,8 @@
       <p class='mt'><%= form.password_field :password, class: 'form-text-area' %></p>
       <p class='mt'><%= form.label :password_confirmation, 'Повтор пароля' %></p>
       <p class='mt'><%= form.password_field :password_confirmation, class: 'form-text-area' %></p>
-      <p class='mt'><%= form.label :colorpicker, 'Выбрать цвет шапки:' %></p>
-      <p class='mt'><%= form.color_field :color, value: @user.color %></p>
+      <p class='mt'><%= form.label :color, 'Выбрать цвет шапки:' %></p>
+      <p class='mt'><%= form.color_field :color %></p>
       <p class='mt'>
         <%= form.submit 'Сохранить', class: 'button button-main' %>
         <span class='text-sm'>или <%= link_to 'Вернуться', :back %></span>
