@@ -6,14 +6,30 @@
   <% end %>
 </div>
 
-<div class='text-sm question-footer'>
-  <div class='text-grey'>
-    <%= l(question.created_at, format: :short) %>
+<% if question.answer.present? %>
+  <div class='mb-sm text-dark-red'>
+    <%= question.answer %>
   </div>
+<% end %>
+
+<div class='text-sm question-footer'>
+  <% if question.author.nil? %>
+    <div class='text-grey'>
+      <p class='text-red'>@аноним</p>
+      <%= l(question.created_at, format: :short) %>
+    </div>
+  <% else %>
+    <div class='text-grey'>
+      <p class='text-red'>@<%= link_to question.author.nickname, user_path(question.author) %></p>
+      <%= l(question.created_at, format: :short) %>
+    </div>
+  <% end %>
 
   <div class='mt'>
     <% if current_user == question.user %>
-      <%= link_to fa_icon('pencil'), edit_question_path(question), title: 'Изменить вопрос' %>
+      <% edit_icon = (question.answer.present? ? 'pencil' : 'reply')%>
+
+      <%= link_to fa_icon(edit_icon), edit_question_path(question), title: 'Изменить вопрос', class: 'mr-sm' %>
       <% unless question.hidden? %>
         <%= button_to fa_icon('eye-slash'), hide_question_path(question), method: :put, title: 'Скрыть вопрос'%>
       <% end %>

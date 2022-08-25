@@ -30,3 +30,15 @@ a, button{
 .text-red {
   color: red;
 }
+
+.text-dark-red {
+  color: rgb(156, 15, 15);
+}
+
+.text-light-grey {
+  color: #c0c0c0;
+}
+
+.text-center {
+  text-align: center;
+}
