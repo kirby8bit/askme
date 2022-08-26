@@ -10,7 +10,7 @@ gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-#gem "pg"
+
 gem "sqlite3"
 
 gem "gravtastic"
@@ -62,6 +62,10 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+end
+
+group :production do
+  gem "pg"
 end
 
 group :test do
