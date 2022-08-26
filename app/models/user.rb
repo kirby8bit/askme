@@ -8,8 +8,10 @@ class User < ApplicationRecord
   validates :color, format: { with: /\A#(\h{3}){1,2}\z/ }
 
   has_many :questions, dependent: :delete_all
+  has_many :asked_questions, class_name: 'Question', foreign_key: :author_id, dependent: :nullify #можно удалить
 
   def downcase_nickname
     nickname.downcase!
+    email.downcase!
   end
 end
