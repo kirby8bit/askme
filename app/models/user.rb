@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :questions, dependent: :delete_all
   has_many :asked_questions, class_name: 'Question', foreign_key: :author_id, dependent: :nullify #можно удалить
 
+  include Gravtastic
+  gravtastic(secure: true, filetype: :png, size: 100, default: 'monsterid')
+
   def downcase_nickname
     nickname.downcase!
     email.downcase!

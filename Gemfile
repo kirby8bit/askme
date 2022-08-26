@@ -13,6 +13,8 @@ gem "sprockets-rails"
 #gem "pg"
 gem "sqlite3"
 
+gem "gravtastic"
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
