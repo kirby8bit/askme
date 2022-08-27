@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  extend FriendlyId
+  include Gravtastic
   has_secure_password
 
   before_validation :downcase_nickname
@@ -10,14 +12,12 @@ class User < ApplicationRecord
   has_many :questions, dependent: :delete_all
   has_many :asked_questions, class_name: 'Question', foreign_key: :author_id, dependent: :nullify #можно удалить
 
-  include Gravtastic
   gravtastic(secure: true, filetype: :png, size: 100, default: 'monsterid')
 
-  extend FriendlyId
   friendly_id :nickname, use: :slugged
 
   def downcase_nickname
-    nickname.downcase!
-    email.downcase!
+    nickname&.downcase!
+    email&.downcase!
   end
 end
