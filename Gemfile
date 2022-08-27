@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem "font-awesome-rails"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 gem "sprockets-rails"
-gem "sqlite3"
+#gem "sqlite3"
 gem "gravtastic"
 gem 'friendly_id', '~> 5.4.0'
 gem "puma", "~> 5.0"
