@@ -16,6 +16,8 @@ class User < ApplicationRecord
 
   friendly_id :nickname, use: :slugged
 
+  private
+
   def downcase_nickname
     nickname&.downcase!
     email&.downcase!

@@ -13,19 +13,11 @@
 <% end %>
 
 <div class='text-sm question-footer'>
-  <% if question.author.present? %>
-     <div class='text-grey'>
-      <p class='text-red'>@<%= link_to question.author.nickname, user_path(question.author) %></p>
-      <%= l(question.created_at, format: :short) %>
-      для <%= link_to question.user.nickname, user_path(question.user) %>
-    </div>
-  <% else %>
-    <div class='text-grey'>
-      <p class='text-red'>@аноним</p>
-      <%= l(question.created_at, format: :short) %>
-      для <%= link_to question.user.nickname, user_path(question.user) %>
-    </div>
-  <% end %>
+  <div class='text-grey'>
+    <p class='text-red'>@<%= question.author.present? ? (link_to question.author.nickname, user_path(question.author)) : 'аноним' %></p>
+    <%= l(question.created_at, format: :short) %>
+    для <%= link_to question.user.nickname, user_path(question.user) %>
+  </div>
 
   <div class='mt'>
     <% if current_user == question.user %>
